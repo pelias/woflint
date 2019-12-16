@@ -38,7 +38,7 @@ class HierarchyConsistencyRule extends Rule {
 
         // ensure all relationships exist within collection
         if (!rel) {
-          let status = 'error'
+          let status = this.documents.size > 1 ? 'error' : 'warning'
           let warnings = ['planet', 'ocean', 'continent', 'empire']
           if (warnings.includes(relation.placetype)) { status = 'warning' }
 
