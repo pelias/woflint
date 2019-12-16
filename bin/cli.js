@@ -7,6 +7,11 @@ const filepath = _.nth(process.argv, 2)
 
 // super simple reporter
 const reporter = (events) => {
+  let count = 0
+  events.on('each', () => {
+    count++
+    // process.stdout.write(`\r${count}`)
+  })
   events.on('assertion', assertion => {
     console.error(assertion)
   })
